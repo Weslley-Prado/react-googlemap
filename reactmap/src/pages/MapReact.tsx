@@ -1,35 +1,57 @@
 import GoogleMapReact from 'google-map-react';
-import React,{ Component } from 'react';
-
-
-export interface MapReactProps{}
-
+import React, { useState } from 'react';
+import './MapReact.css'
 
 
 
-class MapReact extends Component {
-    static defaultProps = {
-      center: {
-        lat: 59.95,
-        lng: 30.33
-      },
-      zoom: 11
-    };
-  
-    render() {
-      return (
-        // Important! Always set the container height explicitly
-        <div style={{ height: '100vh', width: '100%' }}>
-          <GoogleMapReact 
-            bootstrapURLKeys={{ key: 'AIzaSyAD4K4vZN0IagbESNGPdGlap_LWdLYQUOE',}}
-            defaultCenter={{ lat: -15.826691,lng: -47.921822   }}
-            defaultZoom={10}
-          >
-           
-          </GoogleMapReact>
-        </div>
-      );
-    }
+export interface MapReactProps {
+  lat: number,
+  lgn: number,
+  text: string,
+  event:any,
+ 
+}
+export default function MapReact() {
+
+  const [lat, setLat] = useState("")
+  const [lgn, setLgn] = useState("")
+  const handleSubmit = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    console.log(center)
   }
-  
-  export default MapReact;
+
+  let center = {
+    lat: -29.167391,
+    lng:-51.180061
+  }
+
+
+  const defaultProps = {
+    center,
+    zoom: 11
+  };
+
+
+
+
+  return (
+    // Important! Always set the container height explicitly
+    <div style={{ height: '100vh', width: '100%' }}>
+      <form onChange={handleSubmit}>
+        <input type="text" value={lat}
+          onChange={(e) => setLat(e.target.value)} />
+
+        <input type="text" value={lgn}
+          onChange={(e) => setLgn(e.target.value)} />
+        <input className = "subimission" type="submit" value="Buscar" />
+      </form>
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "AIzaSyAD4K4vZN0IagbESNGPdGlap_LWdLYQUOE" }}
+        defaultCenter={center}
+        defaultZoom={defaultProps.zoom}
+      >
+
+      </GoogleMapReact>
+    </div>
+  );
+}
