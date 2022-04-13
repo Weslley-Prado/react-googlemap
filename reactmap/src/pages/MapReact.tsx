@@ -36,7 +36,7 @@ export default function MapReact() {
 
   return (
     // Important! Always set the container height explicitly
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '89vh', width: '100%' }}>
       <form onChange={handleSubmit}>
       <label>Latitude</label>
         <input type="text" value={lat}
