@@ -38,10 +38,11 @@ export default function MapReact() {
     // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <form onChange={handleSubmit}>
+      <label>Latitude</label>
         <input type="text" value={lat}
           onChange={(e) => setLat(e.target.value)} />
-
-        <input type="text" value={lgn}
+        <label>Longitude</label>
+        <input type="text"  value={lgn}
           onChange={(e) => setLgn(e.target.value)} />
         <input className = "subimission" type="submit" value="Buscar" />
       </form>
