@@ -1,6 +1,5 @@
 # react-googlemap
 
-# react-googlemap
 
 
 A ideia dessa aplicação é bem simples:
